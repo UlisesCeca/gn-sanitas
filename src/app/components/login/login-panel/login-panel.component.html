@@ -1,28 +1,22 @@
 <div class="container">
     <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
-        <div class="group">      
-            <mat-icon aria-hidden="false" aria-label="Icono de persona">person</mat-icon>
-            <input type="text" formControlName="email"/>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Email</label>
-        </div>
-        
-        <div class="group">      
-            <mat-icon aria-hidden="false" aria-label="Icono de contraseña">lock_outline</mat-icon>
-            <input type="password" formControlName="password"/>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Contraseña</label>
+        <div class="input-group mb-3">
+            <mat-icon aria-hidden="false" aria-label="Icono de contraseña">person</mat-icon>
+            <input type="text" class="form-control" placeholder="Email" aria-label="Email del usuario" formControlName="email">
         </div>
 
-        <label class="switch">
-            <input type="checkbox" formControlName="remember">
-            <span class="slider round"></span>
-        </label>
+        <div class="input-group mb-3">
+            <mat-icon aria-hidden="false" aria-label="Icono de contraseña">lock_outline</mat-icon>
+            <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña del usuario" formControlName="password">
+        </div>
+
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="rememberSwitch" formControlName="remember">
+            <label class="custom-control-label" for="rememberSwitch">Recordar</label>
+        </div>
 
         <p *ngIf="loginStatus != undefined && loginStatus.show">{{ loginStatus.message }}</p>
 
-        <button class="button-primary" type="submit">Acceder</button>
+        <button type="submit" class="btn btn-outline-primary">Acceder</button>
     </form>
 </div>
