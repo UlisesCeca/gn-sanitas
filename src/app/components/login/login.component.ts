@@ -16,4 +16,12 @@ export class LoginComponent implements OnInit {
     this.changeDetectorRef.detach();
   }
 
+  public login(user: User): void {
+    
+  }
+
+  public showLoginError(error: string): void {
+    
+  }
+
 }
