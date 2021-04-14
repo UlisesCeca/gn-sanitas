@@ -42,6 +42,8 @@ export class LoginPanelComponent implements OnInit {
    */
   public submitForm(): void {
     let user: User;
+    let invalidControls: Array<string>;
+    
     this.loginStatus = { show: true };
 
     if (this.loginForm.valid) {
@@ -53,9 +55,28 @@ export class LoginPanelComponent implements OnInit {
       }
       this.onFormSuccess.emit(user);
     } else {
-      this.loginStatus.message = 'Formulario incorrecto';
-      this.onFormFail.emit('Formulario incorrecto');
+      invalidControls = this.getFormErrors(this.loginForm);
+      this.loginStatus.message = 'Formulario incorrecto. Campos mal informados: ' + invalidControls;
+      this.onFormFail.emit('Formulario incorrecto. Campos mal informados: ' + invalidControls);
     }
+  }
+
+  /**
+   * Método que dado un formulario encuentra
+   * aquellos controles que no están bien informados.
+   * @param form formulario a comprobar.
+   * @returns un array de aquellos controles que no están bien informados.
+   */
+  private getFormErrors(form: FormGroup): Array<string> {
+    const invalid: Array<string> = [];
+
+    for (const name in form.controls) {
+        if (form.controls[name].invalid) {
+            invalid.push(name + '');
+        }
+    }
+
+    return invalid;
   }
 
 }
