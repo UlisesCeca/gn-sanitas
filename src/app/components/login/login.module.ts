@@ -4,7 +4,7 @@ import { LoginPanelComponent } from './login-panel/login-panel.component';
 import { LoginComponent } from './login.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +17,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MatSlideToggleModule,
     MatInputModule,
-    FormsModule, 
     ReactiveFormsModule
   ],
   exports: [
