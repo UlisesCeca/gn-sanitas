@@ -10,10 +10,8 @@ import { User } from 'src/app/models/user';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginPanelComponent implements OnInit {
-  // Event that occurrs when the form is correct
   @Output()
   public readonly onFormSuccess: EventEmitter<User>;
-  // Event that occurrs when the form is not valid
   @Output()
   public readonly onFormFail: EventEmitter<string>;
   public readonly loginForm: FormGroup;
