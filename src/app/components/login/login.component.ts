@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -9,18 +9,28 @@ import { User } from 'src/app/models/user';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
+  /**
+   * Método para hacer login que el usuario
+   * indicado.
+   * @param user usuario que desea hacer login.
+   */
   public login(user: User): void {
-    console.log('bien')
+    console.log('Formulario correcto. Datos: ');
+    console.log(user);
   }
 
+  /**
+   * Método para mostrar un error si el login ha ido mal.
+   * @param error descripción del error.
+   */
   public showLoginError(error: string): void {
-    console.log('mal')
+    console.log('Formulario incorrecto. Causa: ');
+    console.log(error);
   }
 
 }

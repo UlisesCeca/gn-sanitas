@@ -1,12 +1,20 @@
 <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
     <input class="control" formControlName="email" placeholder="Email"/>
+    <br>
+    <br>
 
     <input class="control"  type="password" formControlName="password" placeholder="Contraseña"/>
+    <br>
+    <br>
 
     <label class="switch">
         <input type="checkbox" formControlName="remember">
         <span class="slider round"></span>
     </label>
+    <br>
+    <br>
+
+    <p *ngIf="loginStatus != undefined && loginStatus.show">{{ loginStatus.message }}</p>
 
     <button class="button-primary" type="submit">Acceder</button>
 </form>
