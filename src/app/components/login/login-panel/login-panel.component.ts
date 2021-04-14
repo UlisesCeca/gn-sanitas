@@ -17,6 +17,7 @@ export class LoginPanelComponent implements OnInit {
   @Output()
   public readonly onFormFail: EventEmitter<string>;
   public readonly loginForm: FormGroup;
+  private readonly REGEX_ENAIL: RegExp;
   public loginStatus: LoginStatus;
 
   constructor(
@@ -24,8 +25,9 @@ export class LoginPanelComponent implements OnInit {
     ) { 
       this.onFormSuccess =  new EventEmitter<User>();
       this.onFormFail = new EventEmitter<string>()
+      this.REGEX_ENAIL = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
       this.loginForm = this.formBuilder.group({
-        email: this.formBuilder.control(undefined, [Validators.required, Validators.email]),
+        email: this.formBuilder.control(undefined, [Validators.required, Validators.pattern(this.REGEX_ENAIL)]),
         password: this.formBuilder.control(undefined, [Validators.required, Validators.minLength(5)]),
         remember: this.formBuilder.control(false)
       });
