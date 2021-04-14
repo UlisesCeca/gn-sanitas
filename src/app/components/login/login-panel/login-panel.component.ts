@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginStatus } from 'src/app/models/login-status';
 import { User } from 'src/app/models/user';
@@ -20,7 +20,6 @@ export class LoginPanelComponent implements OnInit {
   public loginStatus: LoginStatus;
 
   constructor(
-    private readonly changeDetector: ChangeDetectorRef,
     private readonly formBuilder: FormBuilder
     ) { 
       this.onFormSuccess =  new EventEmitter<User>();
@@ -57,7 +56,6 @@ export class LoginPanelComponent implements OnInit {
       this.loginStatus.message = 'Formulario incorrecto';
       this.onFormFail.emit('Formulario incorrecto');
     }
-    this.changeDetector.detectChanges();
   }
 
 }
