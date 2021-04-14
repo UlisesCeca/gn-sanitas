@@ -1,1 +1,15 @@
-<p>login-panel works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+    <mat-form-field class="full-width" formControlName="email">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email">
+    </mat-form-field>
+
+    <mat-form-field class="full-width" formControlName="password">
+        <mat-label>Contraseña</mat-label>
+        <input matInput placeholder="Contraseña">
+    </mat-form-field>
+
+    <mat-slide-toggle formControlName="remember">Recordar</mat-slide-toggle>
+
+    <button class="button-primary" type="submit">Acceder</button>
+</form>

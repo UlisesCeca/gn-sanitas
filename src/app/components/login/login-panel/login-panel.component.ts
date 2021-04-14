@@ -5,7 +5,7 @@ import { User } from 'src/app/models/user';
 @Component({
   selector: 'app-login-panel',
   templateUrl: './login-panel.component.html',
-  styleUrls: ['./login-panel.component.css'],
+  styleUrls: ['./login-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginPanelComponent implements OnInit {
@@ -37,6 +37,7 @@ export class LoginPanelComponent implements OnInit {
   }
 
   public submitForm(): void {
+    console.log('hola')
     let user: User;
 
     if (this.loginForm.valid) {
