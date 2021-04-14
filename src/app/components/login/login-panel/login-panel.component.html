@@ -1,16 +1,10 @@
 <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
-    <mat-form-field class="full-width" formControlName="email">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Email">
-    </mat-form-field>
+    <input class="control" formControlName="email" placeholder="Email"/>
 
-    <mat-form-field class="full-width" formControlName="password">
-        <mat-label>Contraseña</mat-label>
-        <input matInput placeholder="Contraseña">
-    </mat-form-field>
+    <input class="control"  type="password" formControlName="password" placeholder="Contraseña"/>
 
     <label class="switch">
-        <input type="checkbox" checked>
+        <input type="checkbox" formControlName="remember">
         <span class="slider round"></span>
     </label>
 

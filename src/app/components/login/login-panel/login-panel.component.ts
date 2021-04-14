@@ -20,7 +20,6 @@ export class LoginPanelComponent implements OnInit {
   public readonly loginForm: FormGroup;
 
   constructor(
-    private readonly changeDetectorRef: ChangeDetectorRef,
     private readonly formBuilder: FormBuilder
     ) { 
       this.onFormSuccess =  new EventEmitter<User>();
@@ -28,16 +27,20 @@ export class LoginPanelComponent implements OnInit {
       this.loginForm = this.formBuilder.group({
         email: this.formBuilder.control('', [Validators.required, Validators.email]),
         password: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-        remember: this.formBuilder.control(false)
+        remember: this.formBuilder.control(true)
       });
     }
 
   ngOnInit(): void {
-    this.changeDetectorRef.detach();
   }
 
+  /**
+   * Método que comprueba si el formulario de login es correcto.
+   * Si lo es, emite el evento onFormSuccess con el usuario proporcionado
+   * en el formulario. Si no es correcto, emite el evento onFormFail con un
+   * mensaje de error.
+   */
   public submitForm(): void {
-    console.log('hola')
     let user: User;
 
     if (this.loginForm.valid) {

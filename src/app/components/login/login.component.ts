@@ -10,19 +10,17 @@ import { User } from 'src/app/models/user';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private readonly changeDetectorRef: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
-    this.changeDetectorRef.detach();
   }
 
   public login(user: User): void {
-    
+    console.log('bien')
   }
 
   public showLoginError(error: string): void {
-    
+    console.log('mal')
   }
 
 }
