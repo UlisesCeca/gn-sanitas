@@ -1,6 +1,7 @@
 <div class="container">
     <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
         <div class="group">      
+            <mat-icon aria-hidden="false" aria-label="Icono de persona">person</mat-icon>
             <input type="text" formControlName="email"/>
             <span class="highlight"></span>
             <span class="bar"></span>
@@ -8,6 +9,7 @@
         </div>
         
         <div class="group">      
+            <mat-icon aria-hidden="false" aria-label="Icono de contraseña">lock_outline</mat-icon>
             <input type="password" formControlName="password"/>
             <span class="highlight"></span>
             <span class="bar"></span>
